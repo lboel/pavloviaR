@@ -15,7 +15,7 @@ getAccessTokenByUsernameAndPassword <- function(username,password)
 
   form<-html_form(session)[[1]]
   form<-html_form_set(form, "user[login]"=username, "user[password]"=  password )
-  session_open<-submit_form(session,form)
+  session_open<-session_submit(session,form)
 
 
   if(session_open$response$url == "https://gitlab.pavlovia.org/profile/personal_access_tokens")
@@ -26,7 +26,7 @@ getAccessTokenByUsernameAndPassword <- function(username,password)
     form$fields[[6]] <- NULL
     form$fields[[6]] <- NULL
 
-    apitoken <- submit_form(session_open,form)
+    apitoken <- session_submit(session_open,form)
     accessToken <-read_html(apitoken$response) %>%
       html_node('#created-personal-access-token') %>%
       html_attr('value')
