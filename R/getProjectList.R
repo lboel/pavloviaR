@@ -1,24 +1,23 @@
-#' Title
+#' Get a List of all shared and owned projects
 #'
-#' @param accessToken
+#' Make sure you have file-access to the projects (owned or shared with you)
 #'
-#' @return
+#' @param accessToken A valid Access-Token
+#'
+#' @return A Response object with $data (a tibble of the project list) and $message a status message and $isError (True if API Call was unsuccessful)
 #' @export
-#'
-#' @examples
+#' @examples projectList <- getProjectList("######")
 getProjectList <- function(accessToken) {
-  responseObject <- list(data = c(), message = "OK", isError = F)
+  responseObject <- list(data = NULL, message = "OK", isError = F)
   gitlabPavloviaURL <- paste0("https://gitlab.pavlovia.org/api/v4/projects/?membership=T") # API - URL to download whole repository
-  r <- GET(gitlabPavloviaURL, add_headers("PRIVATE-TOKEN" = accessToken)) # Get list of available projects
-  bin <- content(r, "raw") # Writing Binary
+  r <- httr::GET(gitlabPavloviaURL, httr::add_headers("PRIVATE-TOKEN" = accessToken)) # Get list of available projects
+  bin <- httr::content(r, "raw") # Writing Binary
   if (r$status_code == "200") {
-    responseObject$data <- read_file(bin) %>% jsonlite::fromJSON()
+    responseObject$data <- readr::read_file(bin) %>% jsonlite::fromJSON()
   }
   else {
     responseObject$isError <- T
     responseObject$message <- "Something is wrong with your AccessToken"
-
-
   }
-  responseObject
+  return(responseObject)
 }

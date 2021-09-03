@@ -2,16 +2,23 @@
 % Please edit documentation in R/getAccessTokenByUsernameAndPassword.R
 \name{getAccessTokenByUsernameAndPassword}
 \alias{getAccessTokenByUsernameAndPassword}
-\title{Title}
+\title{Creates an API-Access-Token on Gitlab.Pavlovia.Org by using username/password.}
 \usage{
 getAccessTokenByUsernameAndPassword(username, password)
 }
 \arguments{
-\item{password}{}
+\item{username}{Username or Email of a registered account in Pavlovia}
+
+\item{password}{Passord for the Pavlovia/Gitlab.Pavlovia Account}
 }
 \value{
-
+A Response object with $data (Names list: $name-> Name of Token , $token -> AccessToken) and $message a status message and $isError (True if API Call was unsuccessful)
 }
 \description{
-Title
+Tokens named PavloviaR_#Random_String#. Tokens should be manually saved for a later use.
+Do not use this function every time you use the other functions.Run it once and save the access token at secure location.
+}
+\examples{
+tokenResponseObject <- getAccessTokenByUsernameAndPassword("username", "12345")
+tokenResponseObject$data$token #here is your accessToken
 }

@@ -2,16 +2,21 @@
 % Please edit documentation in R/getTibbleOfDataDirectoryOfProject.R
 \name{getTibbleOfDataDirectoryOfProject}
 \alias{getTibbleOfDataDirectoryOfProject}
-\title{Title}
+\title{Get a tibble of the data-files in the /data/-Directory of the repository.}
 \usage{
 getTibbleOfDataDirectoryOfProject(accessToken, projectID)
 }
 \arguments{
-\item{projectID}{}
+\item{accessToken}{A valid Access-Token (API)}
+
+\item{projectID}{A shared/owned project ID with access to files}
 }
 \value{
-
+A Response object with $data (a tibble of the data-files) and $message a status message and $isError (True if API Call was unsuccessful)
 }
 \description{
-Title
+In future version more options will be added
+}
+\examples{
+tibbleOfDataFiles <- getTibbleOfDataDirectoryOfProject("#######",12345)
 }

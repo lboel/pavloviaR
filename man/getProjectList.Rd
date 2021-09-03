@@ -2,16 +2,19 @@
 % Please edit documentation in R/getProjectList.R
 \name{getProjectList}
 \alias{getProjectList}
-\title{Title}
+\title{Get a List of all shared and owned projects}
 \usage{
 getProjectList(accessToken)
 }
 \arguments{
-\item{accessToken}{}
+\item{accessToken}{A valid Access-Token}
 }
 \value{
-
+A Response object with $data (a tibble of the project list) and $message a status message and $isError (True if API Call was unsuccessful)
 }
 \description{
-Title
+Make sure you have file-access to the projects (owned or shared with you)
+}
+\examples{
+projectList <- getProjectList("######")
 }
