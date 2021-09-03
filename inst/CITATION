@@ -2,7 +2,7 @@ year <- "2021"
 note <- sprintf("R package version %s", meta$Version)
 
 bibentry(bibtype = "Manual",
-         title = "{pavloviaR}: An R-Package to Interact with the Pavlovia.Org-Platform",
+         title = "{pavloviaR}: A R-Package to Interact with the Pavlovia.Org-Platform",
          author = c(person("Luke", "Boelling")),
          year = year,
          note = note,

@@ -1,6 +1,6 @@
 # YAML 1.2
 ---
-authors: 
+authors:
   -
     family-names: "Bölling"
     given-names: Luke
@@ -9,6 +9,6 @@ cff-version: "0.1.0"
 date-released: 2021-08-19
 message: "If you use this software, please cite it using these metadata."
 repository-code: "https://github.com/lboel/pavloviaShinyAppExtended"
-title: "pavloviaR - An R-Package to Interact with the Pavlovia.Org-Platform"
+title: "pavloviaR - A R-Package to Interact with the Pavlovia.Org-Platform"
 version: "0.9"
 ...
