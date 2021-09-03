@@ -42,4 +42,4 @@ Just contact me via PsychoPy-Discourse to collaborate on this package
 
 
 #### Legal Disclosure
-I am not part of the official PsychoPy-Team. Please use this package carefully (especially the access-tokens like passwords and should be handled with caution) 
+I am not part of the official PsychoPy-Team. Please use this package carefully (especially the access-tokens are like passwords and should be handled with caution) 
