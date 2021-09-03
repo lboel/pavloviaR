@@ -22,6 +22,8 @@ install_github("lboel/pavloviaR")
 #### Example use
 
 
+Please see the [Pkgdown-Documentation](https://pavloviar.psychfactors.de/) for mor information.
+
 ```r
 library(pavloviaR)
 
