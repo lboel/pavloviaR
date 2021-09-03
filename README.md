@@ -1,5 +1,7 @@
 ### pavloviaR: A R-Package to Interact with the Pavlovia.Org-Platform
 
+Here is the link to the [Pkgdown-Documentation](https://pavloviar.psychfactors.de/) for more information.
+
 #### Installation
 
 
@@ -22,7 +24,6 @@ install_github("lboel/pavloviaR")
 #### Example use
 
 
-Please see the [Pkgdown-Documentation](https://pavloviar.psychfactors.de/) for mor information.
 
 ```r
 library(pavloviaR)
