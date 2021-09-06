@@ -18,3 +18,4 @@ mergeDataTibble <- function(data) {
     replace(. == "", NA)
   return(dataMerged)
 }
+

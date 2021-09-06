@@ -6,9 +6,9 @@ authors:
     given-names: Luke
     orcid: "https://orcid.org/0000-0001-7529-9383"
 cff-version: "0.1.0"
-date-released: 2021-08-19
+date-released: 2021-09-06
 message: "If you use this software, please cite it using these metadata."
-repository-code: "https://github.com/lboel/pavloviaShinyAppExtended"
+repository-code: "https://github.com/lboel/pavloviaR"
 title: "pavloviaR - A R-Package to Interact with the Pavlovia.Org-Platform"
-version: "0.9"
+version: "0.1.1"
 ...

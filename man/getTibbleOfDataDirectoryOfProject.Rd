@@ -19,4 +19,5 @@ In future version more options will be added
 }
 \examples{
 tibbleOfDataFiles <- getTibbleOfDataDirectoryOfProject("#######",12345)
+
 }

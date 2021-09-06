@@ -27,10 +27,14 @@ install_github("lboel/pavloviaR")
 
 ```r
 library(pavloviaR)
+tokenObject <- getAccessTokenByUsernameAndPassword("Username","Password")
+token<- tokenObject$data$token
 
-tokenObject <- getAccessTokenByUsernameAndPassword("user","password")
+projects <- getProjectList(token)
 
-getProjectList(tokenobject$data$token)
+dataList <- getTibbleOfDataDirectoryOfProject(token,150783) 
+
+mergedData <- mergeDataTibble(dataList$data)
 
 ```
 

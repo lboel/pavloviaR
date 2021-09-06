@@ -9,8 +9,10 @@
 #' @export
 #' @importFrom "utils" "unzip"
 #' @examples tibbleOfDataFiles <- getTibbleOfDataDirectoryOfProject("#######",12345)
+#'
 getTibbleOfDataDirectoryOfProject <- function(accessToken, projectID) {
 
+  randomTempFolder <- paste0(getwd(),"/",stringi::stri_rand_strings(1, 6, pattern = "[A-Za-z0-9]"))
   responseObject <- list(data = NULL, message = "OK", isError = F)
   gitlabPavloviaURL <- paste0("https://gitlab.pavlovia.org/api/v4/projects/", projectID, "/repository/archive.zip") # API - URL to download whole repository
   r <- httr::GET(gitlabPavloviaURL, httr::add_headers("PRIVATE-TOKEN" = accessToken)) # Getting Archive
@@ -29,16 +31,16 @@ getTibbleOfDataDirectoryOfProject <- function(accessToken, projectID) {
     if (length(csvFiles) > 0) {
       unzip(
         zipfile = temp, overwrite = T,
-        junkpaths = T, files = csvFiles, exdir = "temp"
+        junkpaths = T, files = csvFiles, exdir =  randomTempFolder
       ) # Unzip the csv Files in the temp-file
 
-      csvFilesPaths <- list.files("temp/", full.names = T) # Get the unzipped csv-Files in the temp-directory
+      csvFilesPaths <- list.files(randomTempFolder, full.names = T) # Get the unzipped csv-Files in the temp-directory
 
       # To get only Valid CSV-Files and enable us to filter by DateTime of the File we can parse the files standard date-time string in the Pavlovia-Default FileNames
       dateTimeOfFiles <- tibble(filepaths = csvFilesPaths) %>%
         mutate(dateTime = stringr::str_extract(filepaths, "[0-9]{4}-[0-9]{2}-[0-9]{2}_[0-9]{2}h[0-9]{2}")) %>%
         filter(!is.na(dateTime)) %>%
-        mutate(dateTime = parse_datetime(dateTime, "%Y-%m-%d_%Hh%M"))
+        mutate(dateTime = readr::parse_datetime(dateTime, "%Y-%m-%d_%Hh%M"))
       # %>%  filter(dateTime > parse_datetime("2019-02-01_15h00", "%Y-%m-%d_%Hh%M")) # This can be used to Filter by a specific time
 
    # Now the read the desired data Files with purrr:
@@ -48,7 +50,7 @@ getTibbleOfDataDirectoryOfProject <- function(accessToken, projectID) {
         mutate(
           file_contents = purrr::map(
             filename, # read files into
-            ~ tryCatch(readr::read_csv(file.path(.), colClasses = "character"), error = function(e) {
+            ~ tryCatch(readr::read_csv(file.path(.),show_col_types = FALSE), error = function(e) {print(e)
               NULL
             })
           ) # a new data column
@@ -62,6 +64,7 @@ getTibbleOfDataDirectoryOfProject <- function(accessToken, projectID) {
 
       responseObject$data <- datatemp
       print("Data seems fine")
+      print(paste0("Data-Files were saved to: ",  randomTempFolder))
 
     }
     else {
@@ -71,7 +74,7 @@ getTibbleOfDataDirectoryOfProject <- function(accessToken, projectID) {
   else {
     responseObject$message <- "Project Could not be downloaded!"
     responseObject$isError <- T}
-  unlink("temp", recursive = T)
+
 
   return(responseObject)
 }
