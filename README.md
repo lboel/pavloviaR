@@ -1,3 +1,4 @@
+[![Gitter](https://badges.gitter.im/pavloviaR/community.svg)](https://gitter.im/pavloviaR/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 ### pavloviaR: A R-Package to Interact with the Pavlovia.Org-Platform
 
 Here is the link to the [Pkgdown-Documentation](https://pavloviar.psychfactors.de/) for more information.
