@@ -1,7 +1,7 @@
 Package: pavloviaR
 Type: Package
 Title: Interact with Pavlovia.Org from within R
-Version: 0.1.1
+Version: 0.1.2
 Author: Luke Bölling
 Maintainer: Luke Bölling <luke.boelling@fernuni-hagen.de>
 Description: This package provides a simple interface with Pavlovia.Org-Experiments

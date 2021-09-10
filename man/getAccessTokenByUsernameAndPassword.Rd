@@ -15,8 +15,8 @@ getAccessTokenByUsernameAndPassword(username, password)
 A Response object with $data (Names list: $name-> Name of Token , $token -> AccessToken) and $message a status message and $isError (True if API Call was unsuccessful)
 }
 \description{
-Tokens named PavloviaR_#Random_String#. Tokens should be manually saved for a later use.
-Do not use this function every time you use the other functions.Run it once and save the access token at secure location.
+Tokens named PavloviaR_#Random_String#. Tokens are saved to accessToken.csv in the current working directory and will be reused.
+So we avoid creating an unlimited number of accessTokens on gitlab.pavlovia.org. Be careful with the token!
 }
 \examples{
 tokenResponseObject <- getAccessTokenByUsernameAndPassword("username", "12345")
