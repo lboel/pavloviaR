@@ -36,7 +36,7 @@ getAccessTokenByUsernameAndPassword <- function(username,password)
       rvest::html_node('#created-personal-access-token') %>%
       rvest::html_attr('value')
     responseData <- list(name=nameOfAccessToken,token=accessToken)
-    readr::write.csv2( dplyr::tibble(name=nameOfAccessToken,token=accessToken),file = "accessToken.csv")
+    write.csv2( dplyr::tibble(name=nameOfAccessToken,token=accessToken),file = "accessToken.csv")
     responseObject$data <-  responseData
   }
   else {
