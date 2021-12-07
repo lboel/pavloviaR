@@ -3,8 +3,6 @@
 # pavloviaR 
 ## A R-Package to interact with the Pavlovia.Org-Platform
 
-<img src="man/figures/logo.png" align="right" />
-
 Here is the link to the [Pkgdown-Documentation](https://pavloviar.psychfactors.de/) for more information.
 
 ### Installation
