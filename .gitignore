@@ -6,3 +6,7 @@ inst/doc
 /doc/
 /Meta/
 accessToken.csv
+accessToken
+R/changeStatusOfProject.R
+R/getOverviewOfProject.R
+R/getZipAndProjectFolder.R
